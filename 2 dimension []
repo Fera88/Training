@@ -1,0 +1,71 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace házi_feladat
+{
+    class Program
+    {
+        static Random r = new Random();
+        static void Main(string[] args)
+           
+        
+        {
+            do
+            {
+                do
+                {
+                    int[,] t = new int[50, 50];
+                    int x = r.Next(0, 50);
+                    int y = r.Next(0, 50);
+                    Console.WriteLine("X:");
+                    int xx = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Y:");
+                    int yy = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("XX:");
+                    int xxx = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("YY:");
+                    int yyy = Convert.ToInt32(Console.ReadLine());
+                    for (int i = 0; i < t.GetLength(0); i++)
+                    {
+                        for (int k = 0; k < t.GetLength(1); k++)
+                        {
+                            if (xx == i && yy == k)
+                            {
+                                Console.Write("*");
+                            }
+                            if (xxx == i && k == yyy)
+                            {
+                                Console.Write("$");
+                            }
+
+                            Console.Write(".");
+                        }
+                        Console.WriteLine();
+
+                    }
+
+                    double tavolsag = Math.Sqrt((xx - xxx) * (xx - xxx) + (yyy - yy) * (yyy - yy));
+                    Console.WriteLine("A távolság a két pont között: {0}", Math.Round(tavolsag, 0));
+                    Console.WriteLine("Megadsz egy új koordinátát? I/N");
+                    if (Console.ReadLine().ToUpper() == "N")
+                    {
+                        Console.WriteLine("Dehogynem akarsz, nyomj igent! ;)");
+                    }
+                } while (Console.ReadLine().ToUpper() == "I");
+                do
+                {
+
+                    Console.WriteLine("Na ne szórakozz! :D Adok még egy esélyt, nyomj egy enter-t...");
+
+                } while (Console.ReadLine().ToUpper() == "N");
+                Console.WriteLine("Újrakezded? I/N");
+            }while (Console.ReadLine().ToUpper() == "I");
+
+            
+        }
+       
+    }
+}
